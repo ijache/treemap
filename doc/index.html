@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>TreeMap Component: Overview</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 1.0.4">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="bootstrap.min.css">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<nav class="navbar d-md-none sticky-top bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">TreeMap Component</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarNav" aria-controls="sidebarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav" data-bs-scroll="true">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">TreeMap Component</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarNav" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body py-2">
+<h2><a href="index.html">Overview</a></h2><ul class="nav flex-column px-3"><li class="nav-item"><a class="nav-link px-2 py-1" href="AllUnits.html">Units</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="ClassHierarchy.html">Class Hierarchy</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllTypes.html">Types</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllVariables.html">Variables</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllConstants.html">Constants</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllFunctions.html">Functions and Procedures</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllIdentifiers.html">Identifiers</a></li></ul></div></div>
+<main class="pasdoc-content content">
+<div class="container-fluid py-3 px-4">
+<h1 class="externalitem">TreeMap Component for Delphi</h1>
+ by Rezar Behzad and Ingo Jache <a href="https://www.fe1.com/treemap/">https://www.fe1.com/treemap/</a> 
+
+<p><h2 class=""><span id="introduction"></span>Introduction</h2>
+
+
+<p><a class="normal" href="Treemap.TTreeMap.html">TTreeMap</a> is a Delphi/VCL component that lays out and renders a list of items using the <em>squarified treemap</em> algorithm. The algorithm takes a list of items with associated weights and arranges them on a 2D surface as a set of rectangles: each rectangle's area reflects its item's weight relative to all items, while the layouter keeps the rectangles' aspect ratios as close to square as possible.
+
+<p>The component has decent performance, is customizable, and supports mouse interaction and selection. It is self-contained in a single Delphi unit and requires no third-party libraries.
+
+<p><img src="image_0.png" alt="treemap" />
+
+<p>The layouter is based on this paper: <a href="https://vanwijk.win.tue.nl/stm.pdf">https://vanwijk.win.tue.nl/stm.pdf</a>. It explains the idea and the individual steps well, but its pseudocode and equations — in particular the one for computing the squariness — appear to be broken or at least misleading; this component uses a corrected implementation.
+
+<p><h2 class=""><span id="installation"></span>Installation</h2>
+
+
+<p>There are two ways to install the component:
+
+<p></p>
+
+<ol class="paragraph_spacing">
+  <li value="1"><p><strong>Package-based:</strong> double-click the corresponding <code>.dpk</code> file to open the package in Delphi, then right-click the package root and choose <em>Install</em>.</p></li>
+  <li value="2"><p><strong>No-install:</strong> because the component is a single file, you can also drop it into your project folder or search path and use it from there.</p></li>
+</ol>
+
+<p>
+
+<p><h2 class=""><span id="basicusage"></span>Basic usage</h2>
+
+
+<p>If you installed the package, just drag the TreeMap component onto your form and you are ready to go. If you prefer to create it from code:
+
+<p></p>
+
+<pre class="longcode">
+MyTreeMap := TTreeMap.Create(Self);
+MyTreeMap.Parent := Self;</pre>
+
+<p>
+
+<p>There is no item editor in the IDE, but adding items is simple:
+
+<p></p>
+
+<pre class="longcode">
+<span class="pascal_keyword">var</span>
+  Item: TTreeMapItem;
+<span class="pascal_keyword">begin</span>
+  Item := TTreeMapItem.Create(<span class="pascal_numeric">100</span>, <span class="pascal_string">'Item 1'</span>);
+  MyTreeMap.Items.Add(Item);
+<span class="pascal_keyword">end</span>;</pre>
+
+<p>
+
+<p>The constructor of <a class="normal" href="Treemap.TTreeMapItem.html">TTreeMapItem</a> has two mandatory parameters — the item's <em>Size</em> (its weight) and its <em>Caption</em> (the text shown on the tile) — and three optional ones: <em>BackgroundColor</em>, <em>ForegroundColor</em> and <em>Data</em> (an arbitrary pointer that links the item to your own data). A full example:
+
+<p></p>
+
+<pre class="longcode">
+TTreeMapItem.Create(<span class="pascal_numeric">10</span>, <span class="pascal_string">'Biggest Item'</span>, <span class="pascal_hex">$203040</span>, <span class="pascal_hex">$F8F8F8</span>, <span class="pascal_keyword">nil</span>);</pre>
+
+<p>
+
+<p>When adding large numbers of items, enclose your <code>Add</code>/<code>Remove</code> calls between <a class="normal" href="Treemap.TTreeMap.html#BeginUpdate">TTreeMap.BeginUpdate</a> and <a class="normal" href="Treemap.TTreeMap.html#EndUpdate">TTreeMap.EndUpdate</a> to suppress redraws until every item has been added — just as you would with <code>TListBox</code> and other standard components.
+
+<p><h2 class=""><span id="interaction"></span>Reacting to input</h2>
+
+
+<p>Assign <a class="normal" href="Treemap.TTreeMap.html#OnClickItem">TTreeMap.OnClickItem</a> or <a class="normal" href="Treemap.TTreeMap.html#OnDblClickItem">TTreeMap.OnDblClickItem</a> to respond to clicks; both handlers receive the clicked <a class="normal" href="Treemap.TTreeMapItem.html">TTreeMapItem</a>, the mouse button and the item's state. You can also look up the item under any point directly with <a class="normal" href="Treemap.TTreeMap.html#GetItemAt-integer-integer-">TTreeMap.GetItemAt</a>.
+
+<p><h2 class=""><span id="customization"></span>Customization</h2>
+
+
+<p>The component has a default painter that styles each tile from a mix of the item's own properties and these component-level properties:
+
+<p></p>
+
+<pre class="longcode">
+MyTreeMap.BorderSize := <span class="pascal_numeric">4</span>;
+MyTreeMap.BackgroundColor := clBlue;
+MyTreeMap.SelectionColor := clYellow;</pre>
+
+<p>
+
+<p>Tiles can also show an icon: assign an image list to <a class="normal" href="Treemap.TTreeMap.html#Images">TTreeMap.Images</a> and set each item's <a class="normal" href="Treemap.TTreeMapItem.html#ImageIndex">TTreeMapItem.ImageIndex</a>.
+
+<p>For full control, the TreeMap supports <em>custom drawing</em>, much like standard components such as <code>TListView</code>. Assign a handler to the <a class="normal" href="Treemap.TTreeMap.html#OnDrawItem">TTreeMap.OnDrawItem</a> event:
+
+<p></p>
+
+<pre class="longcode">
+MyTreeMap.OnDrawItem := Self.CustomDrawItem;</pre>
+
+<p>
+
+<p></p>
+
+<pre class="longcode">
+<span class="pascal_keyword">procedure</span> TForm1.CustomDrawItem(
+  Sender: TObject;              <span class="pascal_comment">// the TTreeMap instance requesting the draw</span>
+  Canvas: TCanvas;              <span class="pascal_comment">// the canvas to draw the item on</span>
+  Item: TTreeMapItem;           <span class="pascal_comment">// the item to be drawn</span>
+  State: TTreeMapItemStates;    <span class="pascal_comment">// the item's state: hover, selected</span>
+  <span class="pascal_keyword">var</span> Area: TRect               <span class="pascal_comment">// the rectangle to draw the item in</span>
+);
+<span class="pascal_keyword">begin</span>
+  <span class="pascal_comment">// ...</span>
+<span class="pascal_keyword">end</span>;</pre>
+
+<p>
+
+<p>Note that <code>Area</code> is a <code>var</code> parameter. If your items are nested (top-level items have children), you may want to draw the parent as a thin title bar and let the children fill the remaining space. To have the children laid out and drawn, leave that remaining space in <code>Area</code>; to suppress them, set <code>Area</code> to <code>Rect(0, 0, 0, 0)</code>:
+
+<p></p>
+
+<pre class="longcode">
+<span class="pascal_keyword">procedure</span> TForm1.CustomDrawItem(
+  Sender: TObject;
+  Canvas: TCanvas;
+  Item: TTreeMapItem;
+  State: TTreeMapItemStates;
+  <span class="pascal_keyword">var</span> Area: TRect
+);
+<span class="pascal_keyword">const</span>
+  TitleBarSize = <span class="pascal_numeric">48</span>;
+<span class="pascal_keyword">var</span>
+  PaintArea: TRect;
+<span class="pascal_keyword">begin</span>
+  <span class="pascal_keyword">if</span> <span class="pascal_keyword">not</span> Item.HasChildren <span class="pascal_keyword">then</span>
+  <span class="pascal_keyword">begin</span>
+    <span class="pascal_comment">// no children: use the entire area</span>
+    PaintArea := Area;
+    Area := Rect(<span class="pascal_numeric">0</span>, <span class="pascal_numeric">0</span>, <span class="pascal_numeric">0</span>, <span class="pascal_numeric">0</span>);
+  <span class="pascal_keyword">end</span>
+  <span class="pascal_keyword">else</span>
+  <span class="pascal_keyword">begin</span>
+    <span class="pascal_comment">// children will be drawn: split the space</span>
+    PaintArea := Rect(Area.Left, Area.Top, Area.Right, Area.Bottom - TitleBarSize);
+    Area := Rect(Area.Left, Area.Top + TitleBarSize, Area.Right, Area.Bottom);
+  <span class="pascal_keyword">end</span>;
+  <span class="pascal_comment">// ... paint the item into PaintArea ...</span>
+<span class="pascal_keyword">end</span>;</pre>
+
+<p>
+
+<p><h2 class=""><span id="demos"></span>Demos</h2>
+
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>The <em>simple</em> demo shows the shortest possible use of the TreeMap component.</p></li>
+  <li><p>The <em>showcase</em> demo goes further: mouse interaction, nested treemaps and rendering to bitmaps.</p></li>
+</ul>
+
+<p><hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 1.0.4</a>. </em>
+</span>
+</div></main>
+<script src="bootstrap.bundle.min.js"></script>
+</body></html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>TreeMap Component: Treemap</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 1.0.4">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="bootstrap.min.css">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<nav class="navbar d-md-none sticky-top bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">TreeMap Component</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarNav" aria-controls="sidebarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav" data-bs-scroll="true">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">TreeMap Component</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarNav" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body py-2">
+<h2><a href="index.html">Overview</a></h2><ul class="nav flex-column px-3"><li class="nav-item"><a class="nav-link px-2 py-1" href="AllUnits.html">Units</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="ClassHierarchy.html">Class Hierarchy</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllTypes.html">Types</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllVariables.html">Variables</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllConstants.html">Constants</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllFunctions.html">Functions and Procedures</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllIdentifiers.html">Identifiers</a></li></ul></div></div>
+<main class="pasdoc-content content">
+<div class="container-fluid py-3 px-4">
+<h1 class="unit">Unit Treemap</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objects and Records</a></div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Functions and Procedures</a></div><div class="one_section"><a class="section" href="#PasDoc-Types">Types</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="description">Description</h2>
+<p>
+Squarified treemap component for the VCL.</p>
+<p>
+
+
+<p>This unit implements <a class="normal" href="Treemap.TTreeMap.html">TTreeMap</a>, a <code>TGraphicControl</code> descendant that renders a set of weighted items as a <em>squarified</em> treemap: nested rectangles whose areas are proportional to each item's <a class="normal" href="Treemap.TTreeMapItem.html#Size">TTreeMapItem.Size</a> and whose aspect ratios are kept as close to square as possible for readability.
+
+<p>The public model consists of three cooperating types: </p>
+
+<ul class="paragraph_spacing">
+  <li><p><a class="normal" href="Treemap.TTreeMapItem.html">TTreeMapItem</a> &ndash; a single node, carrying a size/weight, caption, colors and an optional list of child nodes.</p></li>
+  <li><p><a class="normal" href="Treemap.TTreeMapContainer.html">TTreeMapContainer</a> &ndash; an owning, size-sorted list of items; the control's <a class="normal" href="Treemap.TTreeMap.html#Items">TTreeMap.Items</a> property is such a container.</p></li>
+  <li><p><a class="normal" href="Treemap.TTreeMap.html">TTreeMap</a> &ndash; the visual control that lays the items out, paints them and tracks hovering, selection and clicks.</p></li>
+</ul>
+
+<p>
+
+<p>Custom rendering is possible through <a class="normal" href="Treemap.TTreeMap.html#OnDrawItem">TTreeMap.OnDrawItem</a>; when no handler is assigned an internal default painter is used.
+
+<p>  </p>
+<span id="PasDoc-Uses"></span><h2 class="overview">Overview</h2>
+<span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objects and Records</h3>
+<table class="classestable wide_list">
+<tr class="listheader">
+<th class="itemname">Name</th>
+<th class="itemdesc">Description</th>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="Treemap.TTreeMap.html"><code>TTreeMap</code></a></td>
+<td class="itemdesc">A control that displays weighted items as a squarified treemap.</td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="Treemap.TTreeMapContainer.html"><code>TTreeMapContainer</code></a></td>
+<td class="itemdesc">An owning, size-sorted list of <a class="normal" href="Treemap.TTreeMapItem.html">TTreeMapItem</a> instances.</td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="Treemap.TTreeMapItem.html"><code>TTreeMapItem</code></a></td>
+<td class="itemdesc">A single node in a treemap: a weighted, captioned rectangle.</td>
+</tr>
+</table>
+<span id="PasDoc-FuncsProcs"></span><h3 class="summary">Functions and Procedures</h3>
+<table class="summary wide_list">
+<tr class="list visibility-published">
+<td class="itemcode"><code>procedure <strong><a href="Treemap.html#Register">Register</a></strong>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Types"></span><h3 class="summary">Types</h3>
+<table class="summary wide_list">
+<tr class="list visibility-published">
+<td class="itemcode"><code><strong><a href="Treemap.html#TTreeMapItemState">TTreeMapItemState</a></strong> = (...);</code></td>
+</tr>
+<tr class="list2 visibility-published">
+<td class="itemcode"><code><strong><a href="Treemap.html#TTreeMapItemStates">TTreeMapItemStates</a></strong> = set of <a href="Treemap.html#TTreeMapItemState">TTreeMapItemState</a>;</code></td>
+</tr>
+<tr class="list visibility-published">
+<td class="itemcode"><code><strong><a href="Treemap.html#TOnDrawTreeMapItemEvent">TOnDrawTreeMapItemEvent</a></strong> = procedure( Sender: TObject; Canvas: TCanvas; Item: <a href="Treemap.TTreeMapItem.html">TTreeMapItem</a>; State: <a href="Treemap.html#TTreeMapItemStates">TTreeMapItemStates</a>; var Area: TRect) of object;</code></td>
+</tr>
+<tr class="list2 visibility-published">
+<td class="itemcode"><code><strong><a href="Treemap.html#TOnTreeMapItemClickEvent">TOnTreeMapItemClickEvent</a></strong> = procedure( Sender: TObject; Item: <a href="Treemap.TTreeMapItem.html">TTreeMapItem</a>; Button: TMouseButton; State: <a href="Treemap.html#TTreeMapItemStates">TTreeMapItemStates</a> ) of object;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Functions and Procedures</h3>
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
+<td class="itemcode"><span id="Register"></span><code>procedure <strong>Register</strong>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Registers <a class="normal" href="Treemap.TTreeMap.html">TTreeMap</a> on the &quot;Fasko&quot; component palette page.</p>
+</td></tr>
+</table>
+<h3 class="detail">Types</h3>
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
+<td class="itemcode"><span id="TTreeMapItemState"></span><code><strong>TTreeMapItemState</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+State flags describing how a <a class="normal" href="Treemap.TTreeMapItem.html">TTreeMapItem</a> is to be painted. They are passed as a set to draw handlers (<a class="normal" href="Treemap.html#TOnDrawTreeMapItemEvent">TOnDrawTreeMapItemEvent</a>) and click handlers (<a class="normal" href="Treemap.html#TOnTreeMapItemClickEvent">TOnTreeMapItemClickEvent</a>).</p>
+<h6 class="description_section">Values</h6>
+<ul>
+<li>
+<span id="tmisHighlight">tmisHighlight</span>: The mouse pointer is currently hovering over the item.</li>
+<li>
+<span id="tmisSelected">tmisSelected</span>: The item is selected (see <a class="normal" href="Treemap.TTreeMap.html#SetSelected-TTreeMapItem-boolean-">TTreeMap.SetSelected</a>).</li>
+<li>
+<span id="tmisLast">tmisLast</span>: Internal: marks the last item included in the current layout.</li>
+</ul>
+</td></tr>
+</table>
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
+<td class="itemcode"><span id="TTreeMapItemStates"></span><code><strong>TTreeMapItemStates</strong> = set of <a href="Treemap.html#TTreeMapItemState">TTreeMapItemState</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+A set of <a class="normal" href="Treemap.html#TTreeMapItemState">TTreeMapItemState</a> flags describing an item's paint state.</p>
+</td></tr>
+</table>
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
+<td class="itemcode"><span id="TOnDrawTreeMapItemEvent"></span><code><strong>TOnDrawTreeMapItemEvent</strong> = procedure( Sender: TObject; Canvas: TCanvas; Item: <a href="Treemap.TTreeMapItem.html">TTreeMapItem</a>; State: <a href="Treemap.html#TTreeMapItemStates">TTreeMapItemStates</a>; var Area: TRect) of object;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Custom-draw event for a single treemap item.
+
+<p>Assign a handler to <a class="normal" href="Treemap.TTreeMap.html#OnDrawItem">TTreeMap.OnDrawItem</a> to take over painting of items.     </p>
+<h6 class="description_section">Parameters</h6>
+<dl class="parameters">
+<dt>Sender</dt>
+<dd>The <a class="normal" href="Treemap.TTreeMap.html">TTreeMap</a> control requesting the draw.</dd>
+<dt>Canvas</dt>
+<dd>The canvas to paint onto.</dd>
+<dt>Item</dt>
+<dd>The item to be drawn.</dd>
+<dt>State</dt>
+<dd>The item's current <a class="normal" href="Treemap.html#TTreeMapItemStates">paint state</a>.</dd>
+<dt>Area</dt>
+<dd>The rectangle the item must be drawn into. This is a <code>var</code> parameter: a handler may shrink it &ndash; for example to a small title bar &ndash; and return the remaining area, into which the item's children are then laid out and drawn.</dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
+<td class="itemcode"><span id="TOnTreeMapItemClickEvent"></span><code><strong>TOnTreeMapItemClickEvent</strong> = procedure( Sender: TObject; Item: <a href="Treemap.TTreeMapItem.html">TTreeMapItem</a>; Button: TMouseButton; State: <a href="Treemap.html#TTreeMapItemStates">TTreeMapItemStates</a> ) of object;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+Click and double-click event for a treemap item. Used by both <a class="normal" href="Treemap.TTreeMap.html#OnClickItem">TTreeMap.OnClickItem</a> and <a class="normal" href="Treemap.TTreeMap.html#OnDblClickItem">TTreeMap.OnDblClickItem</a>.    </p>
+<h6 class="description_section">Parameters</h6>
+<dl class="parameters">
+<dt>Sender</dt>
+<dd>The <a class="normal" href="Treemap.TTreeMap.html">TTreeMap</a> control that raised the event.</dd>
+<dt>Item</dt>
+<dd>The item under the mouse pointer.</dd>
+<dt>Button</dt>
+<dd>The mouse button involved.</dd>
+<dt>State</dt>
+<dd>The item's current <a class="normal" href="Treemap.html#TTreeMapItemStates">paint state</a>.</dd>
+</dl>
+</td></tr>
+</table>
+<h2 class="authors">Author</h2>
+<ul class="authors">
+<li>Rezar Behzad &amp; Ingo Jache</li>
+</ul>
+<h2 class="created">Created</h2>
+<p>
+26.07.2026
+</p>
+<h2 class="modified">Last Modified</h2>
+<p>
+26.07.2026
+</p>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 1.0.4</a>. </em>
+</span>
+</div></main>
+<script src="bootstrap.bundle.min.js"></script>
+</body></html>

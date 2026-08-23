@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>TreeMap Component: Introduction</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 1.0.4">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="bootstrap.min.css">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<nav class="navbar d-md-none sticky-top bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">TreeMap Component</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarNav" aria-controls="sidebarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav" data-bs-scroll="true">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">TreeMap Component</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarNav" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body py-2">
+<h2><a href="index.html">Introduction</a></h2><ul class="nav flex-column px-3"><li class="nav-item"><a class="nav-link px-2 py-1" href="AllUnits.html">Units</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="ClassHierarchy.html">Class Hierarchy</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllTypes.html">Types</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllVariables.html">Variables</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllConstants.html">Constants</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllFunctions.html">Functions and Procedures</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllIdentifiers.html">Identifiers</a></li></ul></div></div>
+<main class="pasdoc-content content">
+<div class="container-fluid py-3 px-4">
+<h1 class="externalitem">Introduction</h1>
+TreeMap Component for Delphi ============================
+
+<p>Introduction &mdash;&mdash;&mdash;&mdash;
+
+<p>TTreeMap is a Delphi/VCL component that layouts and renders are list of items using the squarified treemap algorithm. This algorithm takes a list of items and associated weights and will layout them on a 2d-surface as a set of rectangles. The rectangles reflect the relative weight compared to all items while the layouter tries to maintain the aspect-ratios of those rectangles to be &quot;squarish&quot;.
+
+<p>It has decent performance, is customizable, provides mouse-interaction and selection. The component is self-contained within one Delphi unit and does not require 3rd party libraries.
+
+<p>!<a href="treemap.png">image of a treemap</a>
+
+<p>The layouter is based on this paper: <a href="https://vanwijk.win.tue.nl/stm.pdf">https://vanwijk.win.tue.nl/stm.pdf</a>
+
+<p>While the paper does a good job at explaining the idea and individual steps of the algorithm, the pseudocode and equations - especially the one to calculate the squariness - seem totally broken to me.
+
+<p>Installation &mdash;&mdash;&mdash;&mdash;
+
+<p>There are two ways to install the component:
+
+<p></p>
+
+<ol class="paragraph_spacing">
+  <li value="1"><p>Package-Based: Doubleclick on the corresponding .dpk-file to open the package in Delphi. Here, right-click on the package-root and then hit &quot;install&quot;</p></li>
+  <li value="2"><p>No-Install: Since the component comes in a single file, you can aswell just drop it into your projects folder or search path and use it from there</p></li>
+</ol>
+
+<p>Basic Usage &mdash;&mdash;&mdash;&ndash;
+
+<p>If you have installed the package, you can simply drag the TreeMap component onto your form and you're ready.
+
+<p>If you prefer to instantiate the component from code:
+
+<p></p>
+
+<pre class="preformatted">
+MyTreeMap := TTreeMap.Create(self);
+MyTreeMap.Parent:= self;</pre>
+
+<p>
+
+<p>There is no item-editor available from the IDE, but adding items is simple too:
+
+<p></p>
+
+<pre class="preformatted">
+var Item: TTreeMapItem;
+begin
+    Item:= TTreeMapItem.Create(100,'Item 1');
+    MyTreeMap.Items.Add(Item);
+end;</pre>
+
+<p>
+
+<p>The constructor for <code>TTreeMapItem</code> has two mandatory parameters: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>Size (or &quot;Weight&quot;, if you like)</p></li>
+  <li><p>Caption (text to display on the item)</p></li>
+</ul>
+
+<p>Optional Parameters are: </p>
+
+<ul class="paragraph_spacing">
+  <li><p>BackgroundColor</p></li>
+  <li><p>ForegroundColor</p></li>
+  <li><p>Data</p></li>
+</ul>
+
+<p>Full example: </p>
+
+<pre class="preformatted">
+TTreeMapItem.Create(10,'Biggest Item',$203040,$f8f8f8,nil)</pre>
+
+<p>
+
+<p>If you are adding huge numbers of items you might want to prevent a redraw until all items are added. In such cases, enclose your Add/Remove calls with <code>BeginUpdate</code> and <code>EndUpdate</code> calls, just like you know them from <code>TListBox</code> and other components.
+
+<p>Customization &mdash;&mdash;&mdash;&mdash;-
+
+<p>The component has a default item-painter that uses the item's properties aswell as component-properties to paint individual-items. The component-properties for styling look like this:
+
+<p></p>
+
+<pre class="preformatted">
+MyTreeMap.BorderSize:= 4;
+MyTreeMap.BackgroundColor:= clBlue;
+MyTreeMap.SelectionColor:= clYellow;</pre>
+
+<p>
+
+<p>Just like you used to know from standard components like <code>TListView</code>, this component also has &quot;custom-draw&quot; capabilities. While doing all the painting yourself is a bit involved, the interface looks quite simple:
+
+<p></p>
+
+<pre class="preformatted">
+...
+    MyTreeMap.OnDraw:= self.CustomDrawItem;
+end;
+
+
+procedure TForm1.CustomDrawItem(
+    Sender: TObject;                // the instance of TTreeMap that requests drawing
+    Canvas: TCanvas;                // the canvas on which to draw the item
+    Item: TTreeMapItem;             // the item to be drawn
+    State: TTreeMapItemStates;      // the items's state: hover, selected
+    var Area: TRect                 // the rect in which the item is to be drawn
+);
+begin
+    ...</pre>
+
+<p>
+
+<p>Notice that the <code>Area</code> parameter is <code>var</code>! If your items are &quot;nested&quot; (i.e. top-level items have children) you might want to draw the &quot;parent-item&quot; as a thin title-bar whereas all children should be drawn in the remaining area. So when your item has children and you want to have them drawn aswell, leave the remaining space in <code>Area</code>. If you don't want to have children layouted and drawn, set <code>Area</code> to <code>rect(0,0,0,0)</code>:
+
+<p></p>
+
+<pre class="preformatted">
+procedure TForm1.CustomDrawItem(
+    Sender: TObject;                
+    Canvas: TCanvas;                
+    Item: TTreeMapItem;             
+    State: TTreeMapItemStates;      
+    var Area: TRect                 
+);
+const
+    titleBarSize = 48;
+var
+    paintOnThisArea: TRect;
+begin
+    if not(Item.HasChildren) then begin
+        // use the entire area if there are no children
+        paintOnThisArea:= area;
+        area:= rect(0,0,0,0);
+    end else begin
+        // but if we plan to draw children, divide the space
+        paintOnThisArea:= rect(
+            area.Left,
+            area.Top,
+            area.Right,
+            area.Bottom - titleBarSize,
+        )
+
+
+        area:= rect(
+            area.Left,
+            area.Top + titleBarSize,
+            area.Right,
+            area.Bottom,
+        )
+    end;
+    ...</pre>
+
+<p>
+
+<p>Demos &mdash;&ndash;
+
+<p></p>
+
+<ul class="paragraph_spacing">
+  <li><p>There is a <code>simple</code> demo that shows the shortest possible usage of the Treemap-Component</p></li>
+  <li><p>There is a `showcase`demo that does a bit more: mouse-interaction, nested TreeMaps and rendering to bitmaps</p></li>
+</ul>
+
+<p><hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 1.0.4</a>. </em>
+</span>
+</div></main>
+<script src="bootstrap.bundle.min.js"></script>
+</body></html>

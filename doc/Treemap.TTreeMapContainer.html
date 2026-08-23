@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>TreeMap Component: Treemap: Class TTreeMapContainer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 1.0.4">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="bootstrap.min.css">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<nav class="navbar d-md-none sticky-top bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">TreeMap Component</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarNav" aria-controls="sidebarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav" data-bs-scroll="true">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">TreeMap Component</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarNav" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body py-2">
+<h2><a href="index.html">Overview</a></h2><ul class="nav flex-column px-3"><li class="nav-item"><a class="nav-link px-2 py-1" href="AllUnits.html">Units</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="ClassHierarchy.html">Class Hierarchy</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllTypes.html">Types</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllVariables.html">Variables</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllConstants.html">Constants</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllFunctions.html">Functions and Procedures</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllIdentifiers.html">Identifiers</a></li></ul></div></div>
+<main class="pasdoc-content content">
+<div class="container-fluid py-3 px-4">
+<span id="TTreeMapContainer"></span><h1 class="cio">Class TTreeMapContainer</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="Treemap.html">Treemap</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TTreeMapContainer = class(TObject)</code></p>
+<h2 class="description">Description</h2>
+<p>
+An owning, size-sorted list of <a class="normal" href="Treemap.TTreeMapItem.html">TTreeMapItem</a> instances.</p>
+<p>
+
+
+<p><a class="normal" href="Treemap.TTreeMapContainer.html#Add-TTreeMapItem-">TTreeMapContainer.Add</a>, <a class="normal" href="Treemap.TTreeMapContainer.html#Remove-TTreeMapItem-">TTreeMapContainer.Remove</a>, <a class="normal" href="Treemap.TTreeMapContainer.html#RemoveAt-integer-">TTreeMapContainer.RemoveAt</a> and <a class="normal" href="Treemap.TTreeMapContainer.html#Clear">TTreeMapContainer.Clear</a> keep the list sorted by <a class="normal" href="Treemap.TTreeMapItem.html#Size">TTreeMapItem.Size</a> in descending order and keep <a class="normal" href="Treemap.TTreeMapContainer.html#TotalSize">TTreeMapContainer.TotalSize</a> up to date on every mutation. The container <strong>owns</strong> its items: an item is freed as soon as it is removed, and when the container is cleared or destroyed.
+
+<p>For bulk population use <a class="normal" href="Treemap.TTreeMapContainer.html#FastAdd-TTreeMapItem-">TTreeMapContainer.FastAdd</a> &ndash; which skips the duplicate check and does not preserve order &ndash; followed by a single <a class="normal" href="Treemap.TTreeMapContainer.html#Sort">TTreeMapContainer.Sort</a>.</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="thisitem">TTreeMapContainer</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>constructor <strong><a href="Treemap.TTreeMapContainer.html#Create">Create</a></strong>;</code></td>
+</tr>
+<tr class="list2 visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>destructor <strong><a href="Treemap.TTreeMapContainer.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>function <strong><a href="Treemap.TTreeMapContainer.html#Add-TTreeMapItem-">Add</a></strong>(aitem: <a href="Treemap.TTreeMapItem.html">TTreeMapItem</a>): integer;</code></td>
+</tr>
+<tr class="list2 visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>function <strong><a href="Treemap.TTreeMapContainer.html#Remove-TTreeMapItem-">Remove</a></strong>(aitem: <a href="Treemap.TTreeMapItem.html">TTreeMapItem</a>): boolean;</code></td>
+</tr>
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>function <strong><a href="Treemap.TTreeMapContainer.html#RemoveAt-integer-">RemoveAt</a></strong>(index: integer): boolean;</code></td>
+</tr>
+<tr class="list2 visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>function <strong><a href="Treemap.TTreeMapContainer.html#IndexOf-TTreeMapItem-">IndexOf</a></strong>(aitem: <a href="Treemap.TTreeMapItem.html">TTreeMapItem</a>): integer;</code></td>
+</tr>
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>function <strong><a href="Treemap.TTreeMapContainer.html#IndexOfData-pointer-">IndexOfData</a></strong>(adata: pointer): integer;</code></td>
+</tr>
+<tr class="list2 visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>function <strong><a href="Treemap.TTreeMapContainer.html#UpdateSizeAt-integer-int64-">UpdateSizeAt</a></strong>(index: integer; newsize: int64): boolean;</code></td>
+</tr>
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>function <strong><a href="Treemap.TTreeMapContainer.html#UpdateSize-TTreeMapItem-int64-">UpdateSize</a></strong>(aitem: <a href="Treemap.TTreeMapItem.html">TTreeMapItem</a>; newsize: int64): boolean;</code></td>
+</tr>
+<tr class="list2 visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>procedure <strong><a href="Treemap.TTreeMapContainer.html#Clear">Clear</a></strong>;</code></td>
+</tr>
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>procedure <strong><a href="Treemap.TTreeMapContainer.html#Sort">Sort</a></strong>;</code></td>
+</tr>
+<tr class="list2 visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>procedure <strong><a href="Treemap.TTreeMapContainer.html#FastAdd-TTreeMapItem-">FastAdd</a></strong>(aitem: <a href="Treemap.TTreeMapItem.html">TTreeMapItem</a>);</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="Treemap.TTreeMapContainer.html#Count">Count</a></strong>: integer read GetCount;</code></td>
+</tr>
+<tr class="list2 visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="Treemap.TTreeMapContainer.html#Items">Items</a></strong>[index: integer]: <a href="Treemap.TTreeMapItem.html">TTreeMapItem</a> read GetItem; default;</code></td>
+</tr>
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="Treemap.TTreeMapContainer.html#TotalSize">TotalSize</a></strong>: int64 read fTotalSize;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Creates an empty container.</p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Clears and frees all contained items, then destroys the container.</p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Add-TTreeMapItem-"></span><code>function <strong>Add</strong>(aitem: <a href="Treemap.TTreeMapItem.html">TTreeMapItem</a>): integer;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Adds a single item, preserving descending size order, and updates <a class="normal" href="Treemap.TTreeMapContainer.html#TotalSize">TTreeMapContainer.TotalSize</a>.  </p>
+<h6 class="description_section">Parameters</h6>
+<dl class="parameters">
+<dt>aitem</dt>
+<dd>The item to add; the container takes ownership of it.</dd>
+</dl>
+<h6 class="description_section">Returns</h6>
+<p class="return">The index at which the item was inserted. If the item is already present, its existing index is returned; returns <code>-1</code> when <code>aitem</code> is <code>Nil</code>.</p></td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Remove-TTreeMapItem-"></span><code>function <strong>Remove</strong>(aitem: <a href="Treemap.TTreeMapItem.html">TTreeMapItem</a>): boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Removes and frees an item, located by reference, and updates <a class="normal" href="Treemap.TTreeMapContainer.html#TotalSize">TTreeMapContainer.TotalSize</a>.  </p>
+<h6 class="description_section">Parameters</h6>
+<dl class="parameters">
+<dt>aitem</dt>
+<dd>The item to remove.</dd>
+</dl>
+<h6 class="description_section">Returns</h6>
+<p class="return"><code>True</code> if the item was found and removed, <code>False</code> otherwise.</p></td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="RemoveAt-integer-"></span><code>function <strong>RemoveAt</strong>(index: integer): boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Removes and frees the item at the given index and updates <a class="normal" href="Treemap.TTreeMapContainer.html#TotalSize">TTreeMapContainer.TotalSize</a>.  </p>
+<h6 class="description_section">Parameters</h6>
+<dl class="parameters">
+<dt>index</dt>
+<dd>Zero-based index of the item to remove.</dd>
+</dl>
+<h6 class="description_section">Returns</h6>
+<p class="return"><code>True</code> if removed, <code>False</code> if <code>index</code> was out of range.</p></td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="IndexOf-TTreeMapItem-"></span><code>function <strong>IndexOf</strong>(aitem: <a href="Treemap.TTreeMapItem.html">TTreeMapItem</a>): integer;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Returns the index of an item, located by reference.  </p>
+<h6 class="description_section">Parameters</h6>
+<dl class="parameters">
+<dt>aitem</dt>
+<dd>The item to look up.</dd>
+</dl>
+<h6 class="description_section">Returns</h6>
+<p class="return">The zero-based index, or <code>-1</code> if not present.</p></td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="IndexOfData-pointer-"></span><code>function <strong>IndexOfData</strong>(adata: pointer): integer;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Returns the index of the first item whose <a class="normal" href="Treemap.TTreeMapItem.html#Data">TTreeMapItem.Data</a> pointer equals <code>adata</code>.  </p>
+<h6 class="description_section">Parameters</h6>
+<dl class="parameters">
+<dt>adata</dt>
+<dd>The data pointer to match.</dd>
+</dl>
+<h6 class="description_section">Returns</h6>
+<p class="return">The zero-based index, or <code>-1</code> if no item matches.</p></td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="UpdateSizeAt-integer-int64-"></span><code>function <strong>UpdateSizeAt</strong>(index: integer; newsize: int64): boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Changes the size of the item at <code>index</code>, moving it to its new sorted position and updating <a class="normal" href="Treemap.TTreeMapContainer.html#TotalSize">TTreeMapContainer.TotalSize</a>.
+
+<p>This is the only supported way to change an item's size, so that the list can stay sorted without a full re-sort.   </p>
+<h6 class="description_section">Parameters</h6>
+<dl class="parameters">
+<dt>index</dt>
+<dd>Zero-based index of the item to update.</dd>
+<dt>newsize</dt>
+<dd>The new size value.</dd>
+</dl>
+<h6 class="description_section">Returns</h6>
+<p class="return"><code>True</code> on success, <code>False</code> if <code>index</code> was out of range.</p></td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="UpdateSize-TTreeMapItem-int64-"></span><code>function <strong>UpdateSize</strong>(aitem: <a href="Treemap.TTreeMapItem.html">TTreeMapItem</a>; newsize: int64): boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Convenience wrapper around <a class="normal" href="Treemap.TTreeMapContainer.html#UpdateSizeAt-integer-int64-">TTreeMapContainer.UpdateSizeAt</a> that first looks the item up by reference.   </p>
+<h6 class="description_section">Parameters</h6>
+<dl class="parameters">
+<dt>aitem</dt>
+<dd>The item whose size to change.</dd>
+<dt>newsize</dt>
+<dd>The new size value.</dd>
+</dl>
+<h6 class="description_section">Returns</h6>
+<p class="return"><code>True</code> on success, <code>False</code> if the item was not found.</p></td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Clear"></span><code>procedure <strong>Clear</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Removes and frees all items and resets <a class="normal" href="Treemap.TTreeMapContainer.html#TotalSize">TTreeMapContainer.TotalSize</a> to zero.</p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Sort"></span><code>procedure <strong>Sort</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Sorts the list by <a class="normal" href="Treemap.TTreeMapItem.html#Size">TTreeMapItem.Size</a> in descending order. Use together with <a class="normal" href="Treemap.TTreeMapContainer.html#FastAdd-TTreeMapItem-">TTreeMapContainer.FastAdd</a>.</p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="FastAdd-TTreeMapItem-"></span><code>procedure <strong>FastAdd</strong>(aitem: <a href="Treemap.TTreeMapItem.html">TTreeMapItem</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Appends an item without checking for duplicates and without preserving sort order, updating <a class="normal" href="Treemap.TTreeMapContainer.html#TotalSize">TTreeMapContainer.TotalSize</a>. Intended for bulk population; call <a class="normal" href="Treemap.TTreeMapContainer.html#Sort">TTreeMapContainer.Sort</a> once all items have been added. </p>
+<h6 class="description_section">Parameters</h6>
+<dl class="parameters">
+<dt>aitem</dt>
+<dd>The item to append; the container takes ownership of it.</dd>
+</dl>
+</td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Count"></span><code>property <strong>Count</strong>: integer read GetCount;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+The number of items currently in the container.</p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Items"></span><code>property <strong>Items</strong>[index: integer]: <a href="Treemap.TTreeMapItem.html">TTreeMapItem</a> read GetItem; default;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Indexed, read-only access to the contained items. This is the default property, so <code>container[i]</code> is equivalent to <code>container.Items[i]</code>.</p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="TotalSize"></span><code>property <strong>TotalSize</strong>: int64 read fTotalSize;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+The sum of the <a class="normal" href="Treemap.TTreeMapItem.html#Size">TTreeMapItem.Size</a> values of all contained items.</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 1.0.4</a>. </em>
+</span>
+</div></main>
+<script src="bootstrap.bundle.min.js"></script>
+</body></html>

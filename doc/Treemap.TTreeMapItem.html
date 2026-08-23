@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>TreeMap Component: Treemap: Class TTreeMapItem</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 1.0.4">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="bootstrap.min.css">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<nav class="navbar d-md-none sticky-top bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">TreeMap Component</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarNav" aria-controls="sidebarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav" data-bs-scroll="true">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">TreeMap Component</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarNav" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body py-2">
+<h2><a href="index.html">Overview</a></h2><ul class="nav flex-column px-3"><li class="nav-item"><a class="nav-link px-2 py-1" href="AllUnits.html">Units</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="ClassHierarchy.html">Class Hierarchy</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllTypes.html">Types</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllVariables.html">Variables</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllConstants.html">Constants</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllFunctions.html">Functions and Procedures</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllIdentifiers.html">Identifiers</a></li></ul></div></div>
+<main class="pasdoc-content content">
+<div class="container-fluid py-3 px-4">
+<span id="TTreeMapItem"></span><h1 class="cio">Class TTreeMapItem</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="Treemap.html">Treemap</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TTreeMapItem = class(TObject)</code></p>
+<h2 class="description">Description</h2>
+<p>
+A single node in a treemap: a weighted, captioned rectangle.</p>
+<p>
+
+
+<p>The most important attribute is <a class="normal" href="Treemap.TTreeMapItem.html#Size">TTreeMapItem.Size</a>, the weight from which the item's area in the layout is derived. Items live inside a <a class="normal" href="Treemap.TTreeMapContainer.html">TTreeMapContainer</a>, which keeps them sorted by size and owns them. An item may itself own a container of child items (<a class="normal" href="Treemap.TTreeMapItem.html#Children">TTreeMapItem.Children</a>), which are drawn as a nested treemap.</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="thisitem">TTreeMapItem</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>constructor <strong><a href="Treemap.TTreeMapItem.html#Create-int64-string-TColor-TColor-pointer-">Create</a></strong>( asize: int64; acaption: string; afill: TColor = $203040; atext: TColor = $f8f8f8; adata: pointer = nil );</code></td>
+</tr>
+<tr class="list2 visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>destructor <strong><a href="Treemap.TTreeMapItem.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>function <strong><a href="Treemap.TTreeMapItem.html#HasChildren">HasChildren</a></strong>: boolean;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="Treemap.TTreeMapItem.html#Size">Size</a></strong>: int64 read fSize;</code></td>
+</tr>
+<tr class="list2 visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="Treemap.TTreeMapItem.html#Rect">Rect</a></strong>: TRect read fRect;</code></td>
+</tr>
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="Treemap.TTreeMapItem.html#Caption">Caption</a></strong>: string read fCaption write fCaption;</code></td>
+</tr>
+<tr class="list2 visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="Treemap.TTreeMapItem.html#Info">Info</a></strong>: string read fInfo write fInfo;</code></td>
+</tr>
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="Treemap.TTreeMapItem.html#BackgroundColor">BackgroundColor</a></strong>: TColor read fBackgroundColor write fBackgroundColor;</code></td>
+</tr>
+<tr class="list2 visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="Treemap.TTreeMapItem.html#ForegroundColor">ForegroundColor</a></strong>: TColor read fForegroundColor write fForegroundColor;</code></td>
+</tr>
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="Treemap.TTreeMapItem.html#Data">Data</a></strong>: pointer read fData write fData;</code></td>
+</tr>
+<tr class="list2 visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="Treemap.TTreeMapItem.html#Tag">Tag</a></strong>: integer read fTag write fTag;</code></td>
+</tr>
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="Treemap.TTreeMapItem.html#ImageIndex">ImageIndex</a></strong>: integer read fImageIndex write fImageIndex;</code></td>
+</tr>
+<tr class="list2 visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="Treemap.TTreeMapItem.html#Children">Children</a></strong>: <a href="Treemap.TTreeMapContainer.html">TTreeMapContainer</a> read GetChildren;</code></td>
+</tr>
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="Treemap.TTreeMapItem.html#Selected">Selected</a></strong>: boolean read fSelected;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Create-int64-string-TColor-TColor-pointer-"></span><code>constructor <strong>Create</strong>( asize: int64; acaption: string; afill: TColor = $203040; atext: TColor = $f8f8f8; adata: pointer = nil );</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Creates an item.     </p>
+<h6 class="description_section">Parameters</h6>
+<dl class="parameters">
+<dt>asize</dt>
+<dd>The item's size/weight, driving its area in the layout.</dd>
+<dt>acaption</dt>
+<dd>The caption text shown on the tile.</dd>
+<dt>afill</dt>
+<dd>The tile background/fill color.</dd>
+<dt>atext</dt>
+<dd>The caption/text color.</dd>
+<dt>adata</dt>
+<dd>An optional user pointer stored in <a class="normal" href="Treemap.TTreeMapItem.html#Data">TTreeMapItem.Data</a>.</dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Destroys the item and frees its child container, if any.</p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="HasChildren"></span><code>function <strong>HasChildren</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Returns <code>True</code> if the item owns at least one child item (that is, when <a class="normal" href="Treemap.TTreeMapItem.html#Children">TTreeMapItem.Children</a> is non-empty).</p>
+</td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Size"></span><code>property <strong>Size</strong>: int64 read fSize;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+The item's size/weight. Set at creation; change it through <a class="normal" href="Treemap.TTreeMapContainer.html#UpdateSize-TTreeMapItem-int64-">TTreeMapContainer.UpdateSize</a> so the owning container stays sorted.</p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Rect"></span><code>property <strong>Rect</strong>: TRect read fRect;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+The rectangle assigned to the item by the layouter, in the coordinate space of the surface it was laid out on. Read-only; updated during layout.</p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Caption"></span><code>property <strong>Caption</strong>: string read fCaption write fCaption;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+The caption text drawn on the tile.</p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Info"></span><code>property <strong>Info</strong>: string read fInfo write fInfo;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Secondary information text drawn on the tile (for example a formatted size).</p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="BackgroundColor"></span><code>property <strong>BackgroundColor</strong>: TColor read fBackgroundColor write fBackgroundColor;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+The tile fill color.</p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="ForegroundColor"></span><code>property <strong>ForegroundColor</strong>: TColor read fForegroundColor write fForegroundColor;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+The caption/text color.</p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Data"></span><code>property <strong>Data</strong>: pointer read fData write fData;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+An arbitrary user pointer, for linking the item to application data.</p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Tag"></span><code>property <strong>Tag</strong>: integer read fTag write fTag;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+An arbitrary user integer, free for application use.</p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="ImageIndex"></span><code>property <strong>ImageIndex</strong>: integer read fImageIndex write fImageIndex;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Index into the control's <a class="normal" href="Treemap.TTreeMap.html#Images">TTreeMap.Images</a> list of the icon shown on the tile, or <code>-1</code> for none.</p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Children"></span><code>property <strong>Children</strong>: <a href="Treemap.TTreeMapContainer.html">TTreeMapContainer</a> read GetChildren;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Optional child items, drawn as a nested treemap inside this item's tile. Their sizes and <a class="normal" href="Treemap.TTreeMapContainer.html#TotalSize">TTreeMapContainer.TotalSize</a> are independent of this item's own <a class="normal" href="Treemap.TTreeMapItem.html#Size">TTreeMapItem.Size</a> and of the <a class="normal" href="Treemap.TTreeMapContainer.html#TotalSize">TTreeMapContainer.TotalSize</a> of the container holding this item. Reading this property creates the child container on demand.</p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Selected"></span><code>property <strong>Selected</strong>: boolean read fSelected;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+<code>True</code> when the item is selected. Change it through <a class="normal" href="Treemap.TTreeMap.html#SetSelected-TTreeMapItem-boolean-">TTreeMap.SetSelected</a> or <a class="normal" href="Treemap.TTreeMap.html#ClearSelection">TTreeMap.ClearSelection</a>.</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 1.0.4</a>. </em>
+</span>
+</div></main>
+<script src="bootstrap.bundle.min.js"></script>
+</body></html>

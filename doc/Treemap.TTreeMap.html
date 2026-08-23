@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>TreeMap Component: Treemap: Class TTreeMap</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 1.0.4">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="bootstrap.min.css">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<nav class="navbar d-md-none sticky-top bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">TreeMap Component</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarNav" aria-controls="sidebarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav" data-bs-scroll="true">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">TreeMap Component</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarNav" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body py-2">
+<h2><a href="index.html">Overview</a></h2><ul class="nav flex-column px-3"><li class="nav-item"><a class="nav-link px-2 py-1" href="AllUnits.html">Units</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="ClassHierarchy.html">Class Hierarchy</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllTypes.html">Types</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllVariables.html">Variables</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllConstants.html">Constants</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllFunctions.html">Functions and Procedures</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllIdentifiers.html">Identifiers</a></li></ul></div></div>
+<main class="pasdoc-content content">
+<div class="container-fluid py-3 px-4">
+<span id="TTreeMap"></span><h1 class="cio">Class TTreeMap</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="Treemap.html">Treemap</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TTreeMap = class(TGraphicControl)</code></p>
+<h2 class="description">Description</h2>
+<p>
+A control that displays weighted items as a squarified treemap.</p>
+<p>
+
+
+<p>Populate the control through its <a class="normal" href="Treemap.TTreeMap.html#Items">TTreeMap.Items</a> container, then let the control lay the items out and paint them. Items that have children are drawn as nested treemaps. Hovering and selection are tracked automatically and reported through <a class="normal" href="Treemap.TTreeMap.html#OnClickItem">TTreeMap.OnClickItem</a> and <a class="normal" href="Treemap.TTreeMap.html#OnDblClickItem">TTreeMap.OnDblClickItem</a>; painting can be customized through <a class="normal" href="Treemap.TTreeMap.html#OnDrawItem">TTreeMap.OnDrawItem</a>.
+
+<p>Wrap bulk changes to <a class="normal" href="Treemap.TTreeMap.html#Items">TTreeMap.Items</a> in <a class="normal" href="Treemap.TTreeMap.html#BeginUpdate">TTreeMap.BeginUpdate</a>/<a class="normal" href="Treemap.TTreeMap.html#EndUpdate">TTreeMap.EndUpdate</a> to avoid intermediate repaints.</p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TGraphicControl</li>
+<li class="thisitem">TTreeMap</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>constructor <strong><a href="Treemap.TTreeMap.html#Create-TComponent-">Create</a></strong>(aowner: TComponent); override;</code></td>
+</tr>
+<tr class="list2 visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>destructor <strong><a href="Treemap.TTreeMap.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>procedure <strong><a href="Treemap.TTreeMap.html#CalculateTreemap-TTreeMapContainer-TRect-">CalculateTreemap</a></strong>(aitems: <a href="Treemap.TTreeMapContainer.html">TTreeMapContainer</a>; arect: TRect);</code></td>
+</tr>
+<tr class="list2 visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>procedure <strong><a href="Treemap.TTreeMap.html#DrawTreemap-TCanvas-TRect-TTreeMapContainer-">DrawTreemap</a></strong>(acanvas: TCanvas; arect: TRect; aitems: <a href="Treemap.TTreeMapContainer.html">TTreeMapContainer</a>);</code></td>
+</tr>
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>function <strong><a href="Treemap.TTreeMap.html#GetItemAt-integer-integer-">GetItemAt</a></strong>(x,y: integer): <a href="Treemap.TTreeMapItem.html">TTreeMapItem</a>;</code></td>
+</tr>
+<tr class="list2 visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>procedure <strong><a href="Treemap.TTreeMap.html#BeginUpdate">BeginUpdate</a></strong>;</code></td>
+</tr>
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>procedure <strong><a href="Treemap.TTreeMap.html#EndUpdate">EndUpdate</a></strong>;</code></td>
+</tr>
+<tr class="list2 visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>procedure <strong><a href="Treemap.TTreeMap.html#ClearSelection">ClearSelection</a></strong>;</code></td>
+</tr>
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>procedure <strong><a href="Treemap.TTreeMap.html#SetSelected-TTreeMapItem-boolean-">SetSelected</a></strong>(const Value: <a href="Treemap.TTreeMapItem.html">TTreeMapItem</a>; selected: boolean);</code></td>
+</tr>
+<tr class="list2 visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>procedure <strong><a href="Treemap.TTreeMap.html#Repaint">Repaint</a></strong>; override;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>property <strong><a href="Treemap.TTreeMap.html#Items">Items</a></strong>: <a href="Treemap.TTreeMapContainer.html">TTreeMapContainer</a> read fItems;</code></td>
+</tr>
+<tr class="list2 visibility-published">
+<td class="visibility"><span class="badge vis-published">Published</span></td>
+<td class="itemcode"><code>property <strong><a href="Treemap.TTreeMap.html#MaxItems">MaxItems</a></strong>: integer read fMaxItems write SetMaxItems default 200;</code></td>
+</tr>
+<tr class="list visibility-published">
+<td class="visibility"><span class="badge vis-published">Published</span></td>
+<td class="itemcode"><code>property <strong><a href="Treemap.TTreeMap.html#MinArea">MinArea</a></strong>: integer read fMinArea write SetMinArea default 64*64;</code></td>
+</tr>
+<tr class="list2 visibility-published">
+<td class="visibility"><span class="badge vis-published">Published</span></td>
+<td class="itemcode"><code>property <strong><a href="Treemap.TTreeMap.html#BackgroundColor">BackgroundColor</a></strong>: TColor read fBackgroundColor write fBackgroundColor default clBtnFace;</code></td>
+</tr>
+<tr class="list visibility-published">
+<td class="visibility"><span class="badge vis-published">Published</span></td>
+<td class="itemcode"><code>property <strong><a href="Treemap.TTreeMap.html#SelectionColor">SelectionColor</a></strong>: TColor read fSelectionColor write SetSelectionColor default $FFFFFF;</code></td>
+</tr>
+<tr class="list2 visibility-published">
+<td class="visibility"><span class="badge vis-published">Published</span></td>
+<td class="itemcode"><code>property <strong><a href="Treemap.TTreeMap.html#BorderSize">BorderSize</a></strong>: integer read fBorderSize write SetBorderSize default 1;</code></td>
+</tr>
+<tr class="list visibility-published">
+<td class="visibility"><span class="badge vis-published">Published</span></td>
+<td class="itemcode"><code>property <strong><a href="Treemap.TTreeMap.html#Font">Font</a></strong>: TFont read fFont write SetFont;</code></td>
+</tr>
+<tr class="list2 visibility-published">
+<td class="visibility"><span class="badge vis-published">Published</span></td>
+<td class="itemcode"><code>property <strong><a href="Treemap.TTreeMap.html#Images">Images</a></strong>: TImageList read fImages write fImages;</code></td>
+</tr>
+<tr class="list visibility-published">
+<td class="visibility"><span class="badge vis-published">Published</span></td>
+<td class="itemcode"><code>property <strong><a href="Treemap.TTreeMap.html#OnDrawItem">OnDrawItem</a></strong>: <a href="Treemap.html#TOnDrawTreeMapItemEvent">TOnDrawTreeMapItemEvent</a> read fOnDrawItem write fOnDrawItem;</code></td>
+</tr>
+<tr class="list2 visibility-published">
+<td class="visibility"><span class="badge vis-published">Published</span></td>
+<td class="itemcode"><code>property <strong><a href="Treemap.TTreeMap.html#OnClickItem">OnClickItem</a></strong>: <a href="Treemap.html#TOnTreeMapItemClickEvent">TOnTreeMapItemClickEvent</a> read fOnClickItem write fOnClickItem;</code></td>
+</tr>
+<tr class="list visibility-published">
+<td class="visibility"><span class="badge vis-published">Published</span></td>
+<td class="itemcode"><code>property <strong><a href="Treemap.TTreeMap.html#OnDblClickItem">OnDblClickItem</a></strong>: <a href="Treemap.html#TOnTreeMapItemClickEvent">TOnTreeMapItemClickEvent</a> read fOnDblClickItem write fOnDblClickItem;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Create-TComponent-"></span><code>constructor <strong>Create</strong>(aowner: TComponent); override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Creates the control, its default painter and an empty item container.</p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Destroys the control and frees the items it owns.</p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="CalculateTreemap-TTreeMapContainer-TRect-"></span><code>procedure <strong>CalculateTreemap</strong>(aitems: <a href="Treemap.TTreeMapContainer.html">TTreeMapContainer</a>; arect: TRect);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Recalculates the treemap layout for <code>aitems</code> within <code>arect</code>.
+
+<p>Called internally when a relayout is required, but exposed so the same layout algorithm can be applied to arbitrary containers &ndash; for example to render a treemap onto another canvas together with <a class="normal" href="Treemap.TTreeMap.html#DrawTreemap-TCanvas-TRect-TTreeMapContainer-">TTreeMap.DrawTreemap</a>.  </p>
+<h6 class="description_section">Parameters</h6>
+<dl class="parameters">
+<dt>aitems</dt>
+<dd>The container whose items are laid out; each item's <a class="normal" href="Treemap.TTreeMapItem.html#Rect">TTreeMapItem.Rect</a> is updated in place.</dd>
+<dt>arect</dt>
+<dd>The rectangle the items are laid out within.</dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="DrawTreemap-TCanvas-TRect-TTreeMapContainer-"></span><code>procedure <strong>DrawTreemap</strong>(acanvas: TCanvas; arect: TRect; aitems: <a href="Treemap.TTreeMapContainer.html">TTreeMapContainer</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Draws <code>aitems</code> as a treemap onto <code>acanvas</code> within <code>arect</code>.
+
+<p>This is the control's main drawing routine, but it can also render a treemap onto any canvas and for containers not managed by the control. The layout is (re)calculated first if required.   </p>
+<h6 class="description_section">Parameters</h6>
+<dl class="parameters">
+<dt>acanvas</dt>
+<dd>The target canvas.</dd>
+<dt>arect</dt>
+<dd>The rectangle to draw within.</dd>
+<dt>aitems</dt>
+<dd>The container of items to draw.</dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="GetItemAt-integer-integer-"></span><code>function <strong>GetItemAt</strong>(x,y: integer): <a href="Treemap.TTreeMapItem.html">TTreeMapItem</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Returns the item at control coordinates <code>(x, y)</code>, searching nested children, or <code>Nil</code> if no item covers that point.   </p>
+<h6 class="description_section">Parameters</h6>
+<dl class="parameters">
+<dt>x</dt>
+<dd>Horizontal position in control coordinates.</dd>
+<dt>y</dt>
+<dd>Vertical position in control coordinates.</dd>
+</dl>
+<h6 class="description_section">Returns</h6>
+<p class="return">The item at the given position, or <code>Nil</code>.</p></td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="BeginUpdate"></span><code>procedure <strong>BeginUpdate</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Suspends repainting while <a class="normal" href="Treemap.TTreeMap.html#Items">TTreeMap.Items</a> is being modified. Must be paired with a later <a class="normal" href="Treemap.TTreeMap.html#EndUpdate">TTreeMap.EndUpdate</a>. Useful when adding or removing many items at once.</p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="EndUpdate"></span><code>procedure <strong>EndUpdate</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Resumes repainting after <a class="normal" href="Treemap.TTreeMap.html#BeginUpdate">TTreeMap.BeginUpdate</a>, forces a relayout and repaints the control.</p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="ClearSelection"></span><code>procedure <strong>ClearSelection</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Clears the selected state of every item, including nested children, and repaints the control.</p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="SetSelected-TTreeMapItem-boolean-"></span><code>procedure <strong>SetSelected</strong>(const Value: <a href="Treemap.TTreeMapItem.html">TTreeMapItem</a>; selected: boolean);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Sets or clears the selected state of a single item, repainting if the state actually changed.  </p>
+<h6 class="description_section">Parameters</h6>
+<dl class="parameters">
+<dt>Value</dt>
+<dd>The item to update. Ignored when <code>Nil</code>.</dd>
+<dt>selected</dt>
+<dd><code>True</code> to select the item, <code>False</code> to deselect it.</dd>
+</dl>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Repaint"></span><code>procedure <strong>Repaint</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Repaints the control immediately, re-rendering the offscreen surface.</p>
+</td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Items"></span><code>property <strong>Items</strong>: <a href="Treemap.TTreeMapContainer.html">TTreeMapContainer</a> read fItems;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+The items rendered by the control. The container may hold a flat list or a hierarchy (items with <a class="normal" href="Treemap.TTreeMapItem.html#Children">TTreeMapItem.Children</a>). The control owns and frees the items it contains. Runtime-only and read-only, so it is not published.</p>
+</td></tr>
+</table>
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
+<td class="visibility"><span class="badge vis-published">Published</span></td>
+<td class="itemcode"><span id="MaxItems"></span><code>property <strong>MaxItems</strong>: integer read fMaxItems write SetMaxItems default 200;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+The maximum number of items laid out within a container. Items beyond this count are ignored by the layout. Changing it forces a relayout.</p>
+</td></tr>
+</table>
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
+<td class="visibility"><span class="badge vis-published">Published</span></td>
+<td class="itemcode"><span id="MinArea"></span><code>property <strong>MinArea</strong>: integer read fMinArea write SetMinArea default 64*64;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+The smallest rectangle area, in square pixels, that is still laid out. Layout stops subdividing once the available area drops below this value. Changing it forces a relayout.</p>
+</td></tr>
+</table>
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
+<td class="visibility"><span class="badge vis-published">Published</span></td>
+<td class="itemcode"><span id="BackgroundColor"></span><code>property <strong>BackgroundColor</strong>: TColor read fBackgroundColor write fBackgroundColor default clBtnFace;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Color used to clear the background behind the tiles.</p>
+</td></tr>
+</table>
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
+<td class="visibility"><span class="badge vis-published">Published</span></td>
+<td class="itemcode"><span id="SelectionColor"></span><code>property <strong>SelectionColor</strong>: TColor read fSelectionColor write SetSelectionColor default $FFFFFF;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Border color drawn around a selected tile by the default painter.</p>
+</td></tr>
+</table>
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
+<td class="visibility"><span class="badge vis-published">Published</span></td>
+<td class="itemcode"><span id="BorderSize"></span><code>property <strong>BorderSize</strong>: integer read fBorderSize write SetBorderSize default 1;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Tile border thickness, in pixels, used by the default painter.</p>
+</td></tr>
+</table>
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
+<td class="visibility"><span class="badge vis-published">Published</span></td>
+<td class="itemcode"><span id="Font"></span><code>property <strong>Font</strong>: TFont read fFont write SetFont;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Base font used by the default painter, which derives several sizes from its name.</p>
+</td></tr>
+</table>
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
+<td class="visibility"><span class="badge vis-published">Published</span></td>
+<td class="itemcode"><span id="Images"></span><code>property <strong>Images</strong>: TImageList read fImages write fImages;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Image list whose icons can be shown on tiles via <a class="normal" href="Treemap.TTreeMapItem.html#ImageIndex">TTreeMapItem.ImageIndex</a>.</p>
+</td></tr>
+</table>
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
+<td class="visibility"><span class="badge vis-published">Published</span></td>
+<td class="itemcode"><span id="OnDrawItem"></span><code>property <strong>OnDrawItem</strong>: <a href="Treemap.html#TOnDrawTreeMapItemEvent">TOnDrawTreeMapItemEvent</a> read fOnDrawItem write fOnDrawItem;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Handler invoked to paint each item. When unassigned, an internal default painter is used. See <a class="normal" href="Treemap.html#TOnDrawTreeMapItemEvent">TOnDrawTreeMapItemEvent</a>.</p>
+</td></tr>
+</table>
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
+<td class="visibility"><span class="badge vis-published">Published</span></td>
+<td class="itemcode"><span id="OnClickItem"></span><code>property <strong>OnClickItem</strong>: <a href="Treemap.html#TOnTreeMapItemClickEvent">TOnTreeMapItemClickEvent</a> read fOnClickItem write fOnClickItem;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Handler invoked on a single click on an item. See <a class="normal" href="Treemap.html#TOnTreeMapItemClickEvent">TOnTreeMapItemClickEvent</a>.</p>
+</td></tr>
+</table>
+<table class="detail visibility-published wide_list">
+<tr class="list visibility-published">
+<td class="visibility"><span class="badge vis-published">Published</span></td>
+<td class="itemcode"><span id="OnDblClickItem"></span><code>property <strong>OnDblClickItem</strong>: <a href="Treemap.html#TOnTreeMapItemClickEvent">TOnTreeMapItemClickEvent</a> read fOnDblClickItem write fOnDblClickItem;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Handler invoked on a double click on an item. See <a class="normal" href="Treemap.html#TOnTreeMapItemClickEvent">TOnTreeMapItemClickEvent</a>.</p>
+</td></tr>
+</table>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 1.0.4</a>. </em>
+</span>
+</div></main>
+<script src="bootstrap.bundle.min.js"></script>
+</body></html>
