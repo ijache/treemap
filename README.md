@@ -1,6 +1,7 @@
 TreeMap Component for Delphi
 ============================
 
+Copyright 2026 
 by Rezar Behzad and Ingo Jache
 https://www.fe1.com/treemap/
 

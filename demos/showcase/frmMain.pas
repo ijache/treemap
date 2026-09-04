@@ -31,11 +31,15 @@ type
     SaveDialog1: TSaveDialog;
     SomeIcons: TImageList;
     Label4: TLabel;
+    CheckBox1: TCheckBox;
+    Label5: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure CheckBox1Click(Sender: TObject);
+    procedure LinkLabel1Click(Sender: TObject);
   private
     { Private-Deklarationen }
     tm: TTreeMap;
@@ -98,6 +102,11 @@ end;
 procedure TFormMain.FormDestroy(Sender: TObject);
 begin
   tm.Free;
+end;
+
+procedure TFormMain.LinkLabel1Click(Sender: TObject);
+begin
+  ShellExecute(0,nil,'https://www.fe1.com/treemap',nil,nil,SW_SHOWNORMAL);
 end;
 
 procedure TFormMain.Button1Click(Sender: TObject);
@@ -168,6 +177,16 @@ begin
   png.SaveToFile(SaveDialog1.Filename);
   png.Free;
   ShellExecute(self.Handle,nil,pwidechar(SaveDialog1.Filename),nil,nil,SW_SHOWNORMAL);
+end;
+
+procedure TFormMain.CheckBox1Click(Sender: TObject);
+begin
+  if tm.Images = nil then begin
+    tm.Images:= SomeIcons;
+  end else begin
+    tm.Images:= nil;
+  end;
+  tm.Repaint;
 end;
 
 end.
