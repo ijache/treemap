@@ -146,5 +146,4 @@ end;
 Demos
 -----
 
-- There is a `simple` demo that shows the shortest possible usage of the TreeMap component.
-- There is a `showcase` demo that goes further: mouse interaction, nested treemaps and rendering to bitmaps.
+There is a `showcase` demo that goes further: mouse interaction, nested treemaps and rendering to bitmaps.
